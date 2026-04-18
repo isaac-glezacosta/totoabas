@@ -1,4 +1,4 @@
-    import random
+import random
 from datetime import datetime, UTC
 from fastapi import APIRouter, Query
 from app.db import collection
