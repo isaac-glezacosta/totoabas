@@ -1,6 +1,6 @@
 from fastapi import APIRouter, HTTPException, Query
 from app.models import AskRequest
-from app.services.measurement_service import get_recent_measurements, build_summary
+from app.services.fish_service import get_recent_fish_readings, build_summary
 from app.services.gemini_service import generate_report, answer_question
 
 router = APIRouter()
@@ -8,7 +8,7 @@ router = APIRouter()
 
 @router.get("/report")
 def report(hours: int = Query(24, ge=1, le=168)):
-    docs = get_recent_measurements(hours=hours, limit=250)
+    docs = get_recent_fish_readings(hours=hours, limit=250)
     summary_data = build_summary(docs)
 
     if summary_data["num_measurements"] == 0:
@@ -20,7 +20,7 @@ def report(hours: int = Query(24, ge=1, le=168)):
 
 @router.post("/ask")
 def ask(payload: AskRequest):
-    docs = get_recent_measurements(hours=payload.hours, limit=250)
+    docs = get_recent_fish_readings(hours=payload.hours, limit=250)
     summary_data = build_summary(docs)
 
     if summary_data["num_measurements"] == 0:
