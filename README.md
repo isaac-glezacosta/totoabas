@@ -206,9 +206,9 @@ El sistema genera alertas automáticas cuando se detectan condiciones fuera de r
 
 ---
 
-## Documentación técnica
+## Reportes generados con Gemini
 
-Consulta el informe completo del proyecto en [`Reporte_Totoabas.pdf`](./Reporte_Totoabas.pdf).
+Ejemplo [`Reporte_Totoabas.pdf`](./Reporte_Totoabas.pdf).
 
 ---
 
