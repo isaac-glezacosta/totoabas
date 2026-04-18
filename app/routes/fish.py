@@ -3,6 +3,7 @@ from datetime import datetime, UTC
 from fastapi import APIRouter, HTTPException, Query
 from app.services.fish_service import (
     get_recent_fish_readings,
+    get_fish_readings_by_id,
     get_current_fish_status,
     get_fish_status_by_id,
     build_summary,
@@ -12,6 +13,15 @@ from app.services.fish_service import (
 router = APIRouter()
 
 
+@router.get("/fish_readings")
+def fish_readings(
+    hours: int = Query(24, ge=1, le=168),
+    limit: int = Query(200, ge=1, le=5000),
+):
+    docs = get_recent_fish_readings(hours=hours, limit=limit)
+    return {"count": len(docs), "data": docs}
+
+
 @router.get("/fish_readings/latest")
 def latest_fish_readings(
     hours: int = Query(24, ge=1, le=168),
@@ -19,6 +29,16 @@ def latest_fish_readings(
 ):
     docs = get_recent_fish_readings(hours=hours, limit=limit)
     return {"count": len(docs), "data": docs}
+
+
+@router.get("/fish_readings/history/{fish_id}")
+def fish_readings_history(
+    fish_id: str,
+    hours: int = Query(168, ge=1, le=720),
+    limit: int = Query(500, ge=1, le=5000),
+):
+    docs = get_fish_readings_by_id(fish_id=fish_id, hours=hours, limit=limit)
+    return {"fishId": fish_id, "count": len(docs), "data": docs}
 
 
 @router.get("/fish_readings/summary")
