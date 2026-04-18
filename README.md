@@ -214,4 +214,4 @@ Ejemplo [`Reporte_Totoabas.pdf`](./Reporte_Totoabas.pdf).
 
 ## Licencia
 
-Este proyecto fue desarrollado como parte de un hackathon. Todos los derechos reservados © Totoabas®.
+Este proyecto fue desarrollado como parte del Hackathon Troyano 2026. Todos los derechos reservados © Totoabas®.
