@@ -10,7 +10,7 @@
 endobj
 4 0 obj
 <<
-/Length 285
+/Length 1700
 >>
 stream
 0.5670000000000001 w
@@ -23,11 +23,43 @@ BT
 (REPORTE DE LIMPIEZA TOTOABAS) Tj
 ET
 BT
+/F1 10 Tf
+11.5 TL
+0 g
+56.6929133858267775 756.8506299212598378 Td
+(Generado por: local-fallback \(rule-based-v1\)) Tj
+ET
+BT
 /F1 11 Tf
 12.6499999999999986 TL
 0 g
-56.6929133858267775 739.8427559055118081 Td
-(No fue posible obtener el reporte desde la API.) Tj
+56.6929133858267775 728.5041732283464171 Td
+(REPORTE DE CALIDAD DE AGUA \(FALLBACK LOCAL\)) Tj
+T* () Tj
+T* (1. Resumen ejecutivo) Tj
+T* (Se analizaron 2 mediciones de 2 pez\(es\) en 1 cuerpo\(s\) de agua.) Tj
+T* (Peces observados: fish_07, fish_09) Tj
+T* (Cuerpos de agua observados: presa_centro) Tj
+T* () Tj
+T* (2. Hallazgos clave) Tj
+T* (- Temperatura: promedio 24.01 C, minimo 22.41 C, maximo 25.61 C) Tj
+T* (- pH: promedio 8.2, minimo 8.04, maximo 8.37) Tj
+T* (- Turbidez: promedio 4.3 NTU, minimo 3.02 NTU, maximo 5.58 NTU) Tj
+T* (- Oxigeno disuelto: promedio 5.71 mg/L, minimo 5.42 mg/L, maximo 6.0 mg/L) Tj
+T* (- Alertas detectadas: 0) Tj
+T* () Tj
+T* (3. Riesgos o anomalias) Tj
+T* (- Se recomienda revisar peces con estado Contaminada o Aceptable para confirmar tendencia.) Tj
+T* (- Si hay incrementos de turbidez y caidas de oxigeno, priorizar inspeccion fisica.) Tj
+T* () Tj
+T* (4. Recomendaciones) Tj
+T* (- Mantener monitoreo cada hora y registrar eventos de lluvia o descargas.) Tj
+T* (- Validar calibracion de sensores de pH y oxigeno semanalmente.) Tj
+T* (- Atender de inmediato cualquier alerta critica sostenida.) Tj
+T* () Tj
+T* (Nota tecnica: Gemini no disponible \(Error al consultar Gemini: 403 PERMISSION_DENIED. {'error': {'code':) Tj
+T* (403, 'message': 'Your project has been denied access. Please contact support.', 'status':) Tj
+T* ('PERMISSION_DENIED'}}\).) Tj
 ET
 endstream
 endobj
@@ -201,7 +233,7 @@ endobj
 19 0 obj
 <<
 /Producer (jsPDF 2.5.1)
-/CreationDate (D:20260418072506-06'00')
+/CreationDate (D:20260418081806-06'00')
 >>
 endobj
 20 0 obj
@@ -215,33 +247,33 @@ endobj
 xref
 0 21
 0000000000 65535 f 
-0000000488 00000 n 
-0000002305 00000 n 
+0000001904 00000 n 
+0000003721 00000 n 
 0000000015 00000 n 
 0000000152 00000 n 
-0000000545 00000 n 
-0000000670 00000 n 
-0000000800 00000 n 
-0000000933 00000 n 
-0000001070 00000 n 
-0000001193 00000 n 
-0000001322 00000 n 
-0000001454 00000 n 
-0000001590 00000 n 
-0000001718 00000 n 
-0000001845 00000 n 
-0000001974 00000 n 
-0000002107 00000 n 
-0000002209 00000 n 
-0000002553 00000 n 
-0000002639 00000 n 
+0000001961 00000 n 
+0000002086 00000 n 
+0000002216 00000 n 
+0000002349 00000 n 
+0000002486 00000 n 
+0000002609 00000 n 
+0000002738 00000 n 
+0000002870 00000 n 
+0000003006 00000 n 
+0000003134 00000 n 
+0000003261 00000 n 
+0000003390 00000 n 
+0000003523 00000 n 
+0000003625 00000 n 
+0000003969 00000 n 
+0000004055 00000 n 
 trailer
 <<
 /Size 21
 /Root 20 0 R
 /Info 19 0 R
-/ID [ <BF60EA77C96863F47C36983CD7853BF9> <BF60EA77C96863F47C36983CD7853BF9> ]
+/ID [ <298D34EB81376A6FA16EE7793BD52994> <298D34EB81376A6FA16EE7793BD52994> ]
 >>
 startxref
-2743
+4159
 %%EOF

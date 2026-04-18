@@ -1584,19 +1584,67 @@
     }
 
     async function apiFetch(path, options = {}) {
-        const response = await fetch(`${API_BASE_URL}${path}`, {
-            ...options,
-            headers: {
-                Accept: 'application/json',
-                ...(options.headers || {})
-            }
-        });
+        const {
+            timeoutMs = 12000,
+            retries = 0,
+            retryDelayMs = 450,
+            ...fetchOptions
+        } = options;
 
-        if (!response.ok) {
-            throw new Error(`API ${response.status} en ${path}`);
+        let attempt = 0;
+        let lastError = null;
+
+        while (attempt <= retries) {
+            const controller = new AbortController();
+            const timeoutHandle = setTimeout(() => controller.abort(), timeoutMs);
+
+            try {
+                const response = await fetch(`${API_BASE_URL}${path}`, {
+                    ...fetchOptions,
+                    signal: controller.signal,
+                    headers: {
+                        Accept: 'application/json',
+                        ...(fetchOptions.headers || {})
+                    }
+                });
+
+                if (!response.ok) {
+                    let detail = '';
+                    try {
+                        const body = await response.json();
+                        detail = body?.detail ? ` · ${body.detail}` : '';
+                    } catch (_) {
+                        // Ignore JSON parse errors and keep basic status message.
+                    }
+                    throw new Error(`API ${response.status} en ${path}${detail}`);
+                }
+
+                clearTimeout(timeoutHandle);
+                return response.json();
+            } catch (error) {
+                clearTimeout(timeoutHandle);
+                const isAbort = error?.name === 'AbortError';
+                const isNetwork = error instanceof TypeError;
+                const status = getApiErrorStatus(error);
+                const retryableStatus = status === null || status >= 500 || status === 429;
+                const canRetry = attempt < retries && (isAbort || isNetwork || retryableStatus);
+
+                if (isAbort) {
+                    lastError = new Error(`API timeout en ${path}`);
+                } else {
+                    lastError = error;
+                }
+
+                if (!canRetry) {
+                    throw lastError;
+                }
+
+                await new Promise(resolve => setTimeout(resolve, retryDelayMs * (attempt + 1)));
+                attempt += 1;
+            }
         }
 
-        return response.json();
+        throw lastError || new Error(`Fallo de API en ${path}`);
     }
 
     async function apiFetchOrNull(path, options = {}) {
@@ -2561,7 +2609,7 @@
 
             for (const path of reportPaths) {
                 try {
-                    reportResp = await apiFetch(path);
+                    reportResp = await apiFetch(path, { retries: 2, timeoutMs: 10000 });
                     selectedPath = path;
                     break;
                 } catch (error) {
