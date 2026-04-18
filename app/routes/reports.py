@@ -14,6 +14,27 @@ from app.services.gemini_service import (
 router = APIRouter()
 
 
+def _friendly_gemini_error(raw_reason: str | None) -> str | None:
+    if not raw_reason:
+        return None
+
+    reason = raw_reason.strip()
+    lower = reason.lower()
+
+    if "permission_denied" in lower or "code': 403" in lower or "code\": 403" in lower:
+        return "Gemini API no tiene permisos habilitados para este proyecto."
+    if "gemini_api_key no esta configurada" in lower:
+        return "GEMINI_API_KEY no esta configurada en el servidor."
+    if "api key" in lower and "not valid" in lower:
+        return "La clave de Gemini no es valida."
+    if "quota" in lower or "rate limit" in lower or "429" in lower:
+        return "Gemini excedio cuota o limite de peticiones."
+
+    if len(reason) > 180:
+        return f"{reason[:180]}..."
+    return reason
+
+
 def _local_report(summary_data: dict, reason: str | None = None) -> str:
     num = summary_data.get("num_measurements", 0)
     alerts = summary_data.get("alerts_count", 0)
@@ -64,7 +85,13 @@ def _local_report(summary_data: dict, reason: str | None = None) -> str:
     ]
 
     if reason:
-        lines.extend(["", f"Nota tecnica: Gemini no disponible ({reason})."])
+        lines.extend(
+            [
+                "",
+                "Nota tecnica: Gemini no estuvo disponible. Se genero reporte local con datos reales.",
+                f"- Motivo: {reason}",
+            ]
+        )
 
     return "\n".join(lines)
 
@@ -88,10 +115,11 @@ def _build_report_response(hours: int, force_gemini: bool = False):
     try:
         report_text = generate_report(summary_data)
     except GeminiServiceError as exc:
+        friendly_reason = _friendly_gemini_error(str(exc))
         if force_gemini:
-            raise HTTPException(status_code=502, detail=str(exc)) from exc
-        report_text = _local_report(summary_data, str(exc))
-        warning = str(exc)
+            raise HTTPException(status_code=502, detail=friendly_reason or str(exc)) from exc
+        report_text = _local_report(summary_data, friendly_reason)
+        warning = friendly_reason
         source = "local_fallback"
 
     return {
