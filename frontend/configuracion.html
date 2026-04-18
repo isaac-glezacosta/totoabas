@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Totoabas | Configuracion</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1521;--panel:#111d2d;--line:#23405a;--text:#f8fafc;--soft:#94a3b8;--neon:#13bbc4;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:radial-gradient(circle at 84% 14%,rgba(19,187,196,.18),transparent 34%),var(--bg)}
+.wrap{max-width:980px;margin:0 auto;padding:28px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+h1{font-family:'Lexend',sans-serif}
+a.back{text-decoration:none;color:#c9f6f8;border:1px solid rgba(19,187,196,.62);padding:8px 12px;border-radius:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{border:1px solid rgba(255,255,255,.14);border-radius:12px;background:linear-gradient(180deg,rgba(17,29,45,.9),rgba(11,22,35,.9));padding:14px}
+.card h3{font-family:'Lexend',sans-serif;font-size:1rem;margin-bottom:8px}
+.card p{color:var(--soft);font-size:.9rem;line-height:1.6}
+.row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-top:1px dashed rgba(255,255,255,.14)}
+.switch{width:46px;height:24px;border-radius:999px;background:rgba(19,187,196,.2);border:1px solid rgba(19,187,196,.6);position:relative}
+.switch::after{content:'';position:absolute;top:2px;left:24px;width:18px;height:18px;border-radius:50%;background:#13bbc4}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><h1>Configuracion del Sistema</h1><a class="back" href="Visualización.html">Volver al panel</a></div>
+<div class="grid">
+<div class="card"><h3>Preferencias de monitoreo</h3><div class="row"><span>Actualizacion automatica</span><span class="switch"></span></div><div class="row"><span>Notificaciones criticas</span><span class="switch"></span></div><div class="row"><span>Modo nocturno de mapa</span><span class="switch"></span></div></div>
+<div class="card"><h3>Perfiles de operación</h3><p>Perfil activo: Supervisor de campo.</p><p>Último acceso: Hoy 08:14.</p><p>Zona asignada: Río Querétaro, tramo centro-oriente.</p></div>
+</div>
+</div>
+</body>
+</html>

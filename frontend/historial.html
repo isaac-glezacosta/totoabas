@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Totoabas | Historial de Alertas</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1521;--panel:#111d2d;--line:#23405a;--text:#f8fafc;--soft:#94a3b8;--neon:#13bbc4;--warn:#f5b84a;--crit:#ff5d6c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:radial-gradient(circle at 12% 84%,rgba(43,136,255,.2),transparent 40%),var(--bg)}
+.wrap{max-width:1040px;margin:0 auto;padding:28px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+h1{font-family:'Lexend',sans-serif}
+a{color:#cbf7f9;text-decoration:none;border:1px solid rgba(19,187,196,.6);padding:8px 12px;border-radius:8px}
+.table{border:1px solid rgba(255,255,255,.14);border-radius:12px;overflow:hidden}
+.row{display:grid;grid-template-columns:120px 1.3fr 1fr 1fr 1fr;gap:8px;padding:12px;border-top:1px solid rgba(255,255,255,.08);background:rgba(17,29,45,.88)}
+.row.head{background:rgba(12,22,35,.95);font-weight:700;color:#c9dbef;border-top:none}
+.badge{display:inline-block;border-radius:999px;padding:3px 8px;font-size:.75rem;font-weight:700}
+.badge.warn{background:rgba(245,184,74,.18);color:#ffe2b0;border:1px solid rgba(245,184,74,.5)}
+.badge.crit{background:rgba(255,93,108,.2);color:#ffc6ce;border:1px solid rgba(255,93,108,.54)}
+@media(max-width:900px){.row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><h1>Historial de Alertas</h1><a href="Visualización.html">Volver al panel</a></div>
+<div class="table">
+<div class="row head"><div>Hora</div><div>Incidente</div><div>Ubicación</div><div>Estado</div><div>Coordenadas</div></div>
+<div class="row"><div>08:42</div><div>Material plástico flotante detectado</div><div>Puente Universidad</div><div><span class="badge warn">Alerta</span></div><div>20.5988, -100.3895</div></div>
+<div class="row"><div>09:17</div><div>Acumulación orgánica en margen norte</div><div>Tramo 3</div><div><span class="badge warn">Alerta</span></div><div>20.5961, -100.4017</div></div>
+<div class="row"><div>10:03</div><div>Obstrucción parcial por residuos mixtos</div><div>Puente Tecnológico</div><div><span class="badge crit">Crítico</span></div><div>20.5949, -100.4137</div></div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Totoabas | Ayuda</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#0d1521; --panel:#122034; --line:#23405a; --text:#f8fafc; --soft:#94a3b8; --neon:#13bbc4; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Montserrat',sans-serif; color:var(--text); background:radial-gradient(circle at 85% 15%, rgba(19,187,196,.2), transparent 35%), var(--bg); }
+.wrap { max-width:1000px; margin:0 auto; padding:28px; }
+.top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:14px; }
+h1 { font-family:'Lexend',sans-serif; }
+a.btn { padding:8px 12px; border:1px solid rgba(19,187,196,.6); border-radius:8px; text-decoration:none; color:#cbf8fb; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.card { border:1px solid rgba(255,255,255,.14); border-radius:12px; background:linear-gradient(180deg, rgba(18,32,52,.9), rgba(13,23,37,.92)); padding:14px; }
+.card h3 { font-family:'Lexend',sans-serif; font-size:1rem; margin-bottom:8px; }
+.card p { color:var(--soft); line-height:1.6; font-size:.92rem; }
+@media(max-width:900px){ .grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><h1>Centro de Ayuda</h1><a class="btn" href="Visualización.html">Volver al panel</a></div>
+<div class="grid">
+<div class="card"><h3>Cómo abrir alertas</h3><p>Haz clic en Alertas en la barra lateral o en la barra inferior para abrir el modal con ubicación, coordenadas y evidencia de cámaras.</p></div>
+<div class="card"><h3>Cómo ver cámaras</h3><p>Dentro del modal de alerta, usa Mostrar lo que vieron las cámaras para reproducir el video capturado.</p></div>
+<div class="card"><h3>Cómo exportar reporte</h3><p>En el panel derecho presiona Generar reporte. Se descargará un PDF con el estado operativo actual.</p></div>
+<div class="card"><h3>Soporte técnico</h3><p>Correo: soporte@totoabas.mx<br>Horario: 24/7<br>Tiempo estimado de respuesta: 20 minutos.</p></div>
+</div>
+</div>
+</body>
+</html>

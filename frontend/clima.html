@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Totoabas | Clima Operativo</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1521;--text:#f8fafc;--soft:#94a3b8;--line:#23405a;--neon:#13bbc4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:radial-gradient(circle at 86% 12%,rgba(19,187,196,.18),transparent 36%),var(--bg)}
+.wrap{max-width:980px;margin:0 auto;padding:28px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+h1{font-family:'Lexend',sans-serif}
+a{text-decoration:none;color:#cbf7f9;border:1px solid rgba(19,187,196,.6);padding:8px 12px;border-radius:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.card{border:1px solid rgba(255,255,255,.14);border-radius:12px;background:linear-gradient(180deg,rgba(17,29,45,.9),rgba(11,22,35,.9));padding:14px}
+.card h3{font-family:'Lexend',sans-serif;font-size:1rem;margin-bottom:8px}
+.value{font-size:1.8rem;font-weight:700;color:#ccfbfd}
+.note{color:var(--soft);font-size:.88rem;margin-top:6px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><h1>Clima Operativo</h1><a href="Visualización.html">Volver al panel</a></div>
+<div class="grid">
+<div class="card"><h3>Temperatura</h3><div class="value">24 C</div><div class="note">Sensación térmica: 25 C</div></div>
+<div class="card"><h3>Humedad</h3><div class="value">62%</div><div class="note">Probabilidad de lluvia: 10%</div></div>
+<div class="card"><h3>Viento</h3><div class="value">9 km/h</div><div class="note">Dirección: Noreste</div></div>
+</div>
+</div>
+</body>
+</html>

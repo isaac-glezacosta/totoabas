@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Totoabas | Reportes</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1521;--text:#f8fafc;--soft:#94a3b8;--line:#23405a;--neon:#13bbc4}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:radial-gradient(circle at 84% 14%,rgba(19,187,196,.16),transparent 34%),var(--bg)}
+.wrap{max-width:980px;margin:0 auto;padding:28px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+h1{font-family:'Lexend',sans-serif}
+a{text-decoration:none;color:#cbf7f9;border:1px solid rgba(19,187,196,.6);padding:8px 12px;border-radius:8px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.card{border:1px solid rgba(255,255,255,.14);border-radius:12px;background:linear-gradient(180deg,rgba(17,29,45,.9),rgba(11,22,35,.9));padding:14px}
+.card h3{font-family:'Lexend',sans-serif;font-size:1rem;margin-bottom:8px}
+.card p{color:var(--soft);font-size:.9rem;line-height:1.6}
+.btn{margin-top:10px;min-height:40px;border-radius:9px;border:1px solid rgba(19,187,196,.7);background:linear-gradient(180deg,#13bbc4,#0f9da5);color:#041318;font-weight:700;width:100%}
+.result{margin-top:14px;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:12px;background:rgba(12,21,33,.85);color:#d6e5f6;white-space:pre-wrap;line-height:1.55;font-size:.88rem;min-height:64px}
+@media(max-width:860px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><h1>Centro de Reportes</h1><a href="Visualización.html">Volver al panel</a></div>
+<div class="cards">
+<div class="card"><h3>Reporte Diario</h3><p>Resumen de eventos, lecturas de sensores y estado de operación por tramo.</p><button class="btn" data-report="summary">Generar</button></div>
+<div class="card"><h3>Reporte Ejecutivo</h3><p>Indicadores clave para dirección: alertas críticas, tiempos de atención y tendencia mensual.</p><button class="btn" data-report="executive">Generar</button></div>
+<div class="card"><h3>Reporte de Evidencias</h3><p>Compilado de capturas y videos relacionados con incidentes de materiales extraños.</p><button class="btn" data-report="evidence">Generar</button></div>
+<div class="card"><h3>Reporte Técnico</h3><p>Valores de pH, oxígeno y flujo con comparativa histórica por punto de monitoreo.</p><button class="btn" data-report="technical">Generar</button></div>
+</div>
+<div id="report-result" class="result">Selecciona un reporte para consultar datos en vivo de la API.</div>
+</div>
+
+<script>
+const API_BASE_URL = 'http://216.238.81.22:8000';
+const resultBox = document.getElementById('report-result');
+
+async function apiFetch(path, options = {}) {
+	const response = await fetch(`${API_BASE_URL}${path}`, {
+		...options,
+		headers: {
+			Accept: 'application/json',
+			...(options.headers || {})
+		}
+	});
+
+	if (!response.ok) {
+		throw new Error(`API ${response.status} en ${path}`);
+	}
+	return response.json();
+}
+
+function setResult(text) {
+	resultBox.textContent = text;
+}
+
+async function generateSummaryReport() {
+	const summary = await apiFetch('/fish_readings/summary?hours=24');
+	const lines = [
+		`Lecturas: ${summary.num_measurements ?? 0}`,
+		`Peces activos: ${(summary.fishes || []).join(', ') || 'Sin datos'}`,
+		`Cuerpos de agua: ${(summary.water_bodies || []).join(', ') || 'Sin datos'}`,
+		`pH promedio: ${typeof summary?.ph?.avg === 'number' ? summary.ph.avg.toFixed(2) : 'N/D'}`,
+		`Oxigeno promedio: ${typeof summary?.oxygen?.avg === 'number' ? summary.oxygen.avg.toFixed(2) : 'N/D'}`,
+		`Turbidez promedio: ${typeof summary?.turbidity?.avg === 'number' ? summary.turbidity.avg.toFixed(2) : 'N/D'}`,
+		`Alertas: ${summary.alerts_count ?? 0}`
+	];
+	setResult(lines.join('\n'));
+}
+
+async function generateExecutiveReport() {
+	const data = await apiFetch('/reports/report?hours=24');
+	setResult(data.report || 'No se recibio texto de reporte ejecutivo.');
+}
+
+async function generateEvidenceReport() {
+	const latest = await apiFetch('/fish_readings/latest?hours=24&limit=50');
+	const alertRows = (latest.data || []).filter(item => item.alert).slice(0, 12);
+	if (!alertRows.length) {
+		setResult('No hay evidencias de alertas activas en las ultimas 24 horas.');
+		return;
+	}
+
+	const text = alertRows.map((item, idx) => {
+		const id = item.fishId || item.robotId || 'desconocido';
+		const t = item.timestamp || 'sin fecha';
+		const lat = item?.location?.lat;
+		const lng = item?.location?.lng;
+		return `${idx + 1}. ${id} · ${t} · (${lat}, ${lng})`;
+	}).join('\n');
+	setResult(`Evidencias detectadas:\n${text}`);
+}
+
+async function generateTechnicalReport() {
+	const status = await apiFetch('/fish_status?limit=100');
+	const rows = (status.data || []).slice(0, 15);
+	if (!rows.length) {
+		setResult('Sin estado tecnico disponible por el momento.');
+		return;
+	}
+
+	const text = rows.map(item => {
+		const id = item.fishId || item.robotId || 'desconocido';
+		const m = item.metrics || {};
+		return `${id} | pH ${m.ph ?? 'N/D'} | O2 ${m.oxygen ?? 'N/D'} | Turbidez ${m.turbidity ?? 'N/D'} | Temp ${m.temperature ?? 'N/D'}`;
+	}).join('\n');
+	setResult(`Corte tecnico actual:\n${text}`);
+}
+
+async function onGenerateClick(type) {
+	setResult('Consultando API...');
+	try {
+		if (type === 'summary') {
+			await generateSummaryReport();
+			return;
+		}
+		if (type === 'executive') {
+			await generateExecutiveReport();
+			return;
+		}
+		if (type === 'evidence') {
+			await generateEvidenceReport();
+			return;
+		}
+		await generateTechnicalReport();
+	} catch (error) {
+		console.error(error);
+		setResult('No se pudo consultar la API. Revisa conectividad o CORS en el backend.');
+	}
+}
+
+document.querySelectorAll('button[data-report]').forEach(btn => {
+	btn.addEventListener('click', () => onGenerateClick(btn.dataset.report));
+});
+</script>
+</body>
+</html>

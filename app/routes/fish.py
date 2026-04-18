@@ -44,7 +44,16 @@ def fish_readings_history(
 @router.get("/fish_readings/summary")
 def fish_readings_summary(hours: int = Query(24, ge=1, le=168)):
     docs = get_recent_fish_readings(hours=hours, limit=500)
-    return build_summary(docs)
+    source = "fish_readings"
+
+    # If recent readings are empty, fall back to current fish status.
+    if not docs:
+        docs = get_current_fish_status(limit=500)
+        source = "fish_status_fallback"
+
+    summary = build_summary(docs)
+    summary["source"] = source
+    return summary
 
 
 @router.get("/fish_status")

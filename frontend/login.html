@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Totoabas | Acceso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d1521;
+            --bg-soft: #111d2d;
+            --text-main: #f8fafc;
+            --text-soft: #94a3b8;
+            --line: #23405a;
+            --neon: #13bbc4;
+            --neon-2: #2b88ff;
+            --danger: #ff6f7b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            background:
+                radial-gradient(circle at 84% 18%, rgba(19, 187, 196, 0.2), transparent 36%),
+                radial-gradient(circle at 18% 84%, rgba(43, 136, 255, 0.22), transparent 42%),
+                var(--bg);
+            padding: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .drift-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .drift-item {
+            position: absolute;
+            opacity: 0.22;
+            filter: blur(0.1px);
+            animation: driftAcross linear infinite;
+            border: 1px solid rgba(220, 238, 255, 0.2);
+            box-shadow: 0 8px 18px rgba(3, 8, 14, 0.38);
+        }
+
+        .drift-item.soft {
+            opacity: 0.14;
+        }
+
+        .drift-item.bag {
+            width: 64px;
+            height: 84px;
+            border-radius: 28px 28px 22px 22px;
+            background:
+                radial-gradient(circle at 50% 7px, rgba(210, 228, 246, 0.7) 0 4px, transparent 5px),
+                linear-gradient(180deg, rgba(75, 95, 120, 0.92) 0%, rgba(44, 60, 80, 0.96) 100%);
+        }
+
+        .drift-item.bag::before {
+            content: '';
+            position: absolute;
+            left: 22px;
+            top: -9px;
+            width: 20px;
+            height: 14px;
+            border-radius: 10px 10px 6px 6px;
+            background: linear-gradient(180deg, #9fb4c9 0%, #556a84 100%);
+            border: 1px solid rgba(222, 238, 255, 0.26);
+        }
+
+        .drift-item.bottle {
+            width: 40px;
+            height: 102px;
+            border-radius: 14px 14px 12px 12px;
+            background:
+                linear-gradient(90deg, rgba(152, 199, 223, 0.68) 0%, rgba(210, 236, 248, 0.54) 30%, rgba(90, 145, 176, 0.72) 100%),
+                linear-gradient(180deg, rgba(41, 90, 128, 0.76) 0%, rgba(22, 56, 86, 0.92) 100%);
+        }
+
+        .drift-item.bottle::before {
+            content: '';
+            position: absolute;
+            left: 10px;
+            top: -13px;
+            width: 20px;
+            height: 16px;
+            border-radius: 7px 7px 5px 5px;
+            background: linear-gradient(180deg, #8ad4ff 0%, #4d8fb5 100%);
+            border: 1px solid rgba(205, 236, 255, 0.46);
+        }
+
+        .drift-item.one { top: 16%; animation-duration: 20s; animation-delay: -3s; }
+        .drift-item.two { top: 34%; animation-duration: 24s; animation-delay: -11s; }
+        .drift-item.three { top: 58%; animation-duration: 28s; animation-delay: -7s; }
+        .drift-item.four { top: 76%; animation-duration: 22s; animation-delay: -14s; }
+
+        @keyframes driftAcross {
+            0% { transform: translateX(-120px) translateY(0) rotate(0deg); }
+            50% { transform: translateX(52vw) translateY(-10px) rotate(8deg); }
+            100% { transform: translateX(108vw) translateY(0) rotate(-4deg); }
+        }
+
+        .layout {
+            width: min(980px, 100%);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            background: linear-gradient(160deg, rgba(17, 29, 45, 0.94) 0%, rgba(11, 22, 35, 0.92) 100%);
+            box-shadow: 0 20px 36px rgba(0, 0, 0, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .left {
+            padding: 30px;
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .left h1 {
+            font-family: 'Lexend', sans-serif;
+            font-size: clamp(1.9rem, 3vw, 2.6rem);
+            line-height: 1.08;
+        }
+
+        .left p {
+            margin-top: 12px;
+            color: var(--text-soft);
+            line-height: 1.65;
+            max-width: 460px;
+        }
+
+        .badges {
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .badge {
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            font-size: 0.83rem;
+            color: #bed0e5;
+        }
+
+        .right {
+            padding: 24px;
+        }
+
+        .right h2 {
+            font-family: 'Lexend', sans-serif;
+            font-size: 1.25rem;
+            margin-bottom: 5px;
+        }
+
+        .note {
+            color: var(--text-soft);
+            font-size: 0.88rem;
+            margin-bottom: 12px;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            margin: 8px 0 5px;
+            color: #c5d5e8;
+        }
+
+        input {
+            width: 100%;
+            height: 44px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(10, 18, 30, 0.9);
+            color: var(--text-main);
+            padding: 0 11px;
+            font-family: inherit;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: rgba(19, 187, 196, 0.7);
+            box-shadow: 0 0 0 2px rgba(19, 187, 196, 0.2);
+        }
+
+        .actions {
+            margin-top: 12px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        button,
+        .btn-link {
+            min-height: 42px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-weight: 700;
+            font-family: inherit;
+            font-size: 0.88rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .btn-main {
+            background: linear-gradient(180deg, var(--neon) 0%, #0f9da5 100%);
+            color: #041318;
+            border-color: rgba(19, 187, 196, 0.9);
+        }
+
+        .btn-alt {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-main);
+        }
+
+        .links {
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .links a {
+            min-height: 34px;
+            border-radius: 9px;
+            border: 1px solid rgba(255, 255, 255, 0.13);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #bad0e6;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .error {
+            min-height: 20px;
+            margin-top: 8px;
+            color: #ffb9c0;
+            font-size: 0.83rem;
+        }
+
+        @media (max-width: 920px) {
+            .layout { grid-template-columns: 1fr; }
+            .left { border-right: none; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+            .badges { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <main class="layout">
+        <section class="left">
+            <h1>Acceso al Centro de Monitoreo Hídrico</h1>
+            <p>
+                Controla alertas, evidencia de cámaras y reportes de campo desde una sola interfaz.
+                Este entorno está diseñado para operaciones rápidas y decisiones confiables.
+            </p>
+            <div class="badges">
+                <div class="badge">Detección temprana de residuos con evidencia visual</div>
+                <div class="badge">Alertas priorizadas por riesgo y ubicación exacta</div>
+                <div class="badge">Panel unificado con métricas y trazabilidad operativa</div>
+                <div class="badge">Reportes ejecutivos listos para decisiones rápidas</div>
+            </div>
+        </section>
+
+        <section class="right">
+            <h2>Iniciar sesión</h2>
+            <p class="note">Acceso institucional para equipo directivo y operaciones.</p>
+
+            <label for="user">Usuario</label>
+            <input type="text" id="user" placeholder="poderejecutivo_" autocomplete="username">
+
+            <label for="pass">Contraseña</label>
+            <input type="password" id="pass" placeholder="Ingresa tu contraseña" autocomplete="current-password">
+
+            <div class="actions">
+                <button class="btn-main" onclick="login()">Inicio</button>
+                <a class="btn-link btn-alt" href="index.html">Salir</a>
+            </div>
+
+            <div class="links">
+                <a href="ayuda.html">Ayuda</a>
+                <a href="contacto.html">Contactarnos</a>
+                <a href="cotizar.html">Cotizar</a>
+                <a href="Visualización.html">Vista previa</a>
+            </div>
+
+            <div id="error" class="error"></div>
+        </section>
+    </main>
+
+    <script>
+        function login() {
+            const u = document.getElementById('user').value;
+            const p = document.getElementById('pass').value;
+            if (u === 'poderejecutivo_' && p === '1234') {
+                localStorage.setItem('auth', 'true');
+                window.location.href = 'Visualización.html';
+            } else {
+                document.getElementById('error').innerText = 'Acceso denegado. Revisa tus credenciales.';
+            }
+        }
+    </script>
+
+    <div class="drift-layer" aria-hidden="true">
+        <span class="drift-item bottle one"></span>
+        <span class="drift-item bag two soft"></span>
+        <span class="drift-item bottle three"></span>
+        <span class="drift-item bag four soft"></span>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Totoabas | Cotizar</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { --bg:#0d1521; --panel:#122034; --line:#23405a; --text:#f8fafc; --soft:#94a3b8; --neon:#13bbc4; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Montserrat',sans-serif; color:var(--text); background:radial-gradient(circle at 84% 14%, rgba(19,187,196,.2), transparent 36%), var(--bg); }
+.wrap { max-width:900px; margin:0 auto; padding:28px; }
+.card { border:1px solid rgba(255,255,255,.14); border-radius:14px; background:linear-gradient(180deg, rgba(18,32,52,.9), rgba(13,23,37,.92)); padding:18px; }
+h1 { font-family:'Lexend',sans-serif; margin-bottom:8px; }
+p { color:var(--soft); line-height:1.6; margin-bottom:14px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.field { border:1px solid rgba(255,255,255,.14); border-radius:10px; background:rgba(8,14,22,.8); color:var(--text); height:42px; padding:0 10px; }
+textarea.field { height:110px; padding:10px; resize:vertical; }
+.full { grid-column:1 / -1; }
+.btn { margin-top:10px; border:1px solid rgba(19,187,196,.75); border-radius:10px; background:linear-gradient(180deg,#13bbc4,#0f9da5); color:#041318; height:42px; font-weight:700; }
+a.back { display:inline-block; margin-bottom:10px; color:#cbf8fb; text-decoration:none; border:1px solid rgba(19,187,196,.6); padding:8px 12px; border-radius:8px; }
+@media(max-width:850px){ .grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+<a class="back" href="index.html">Volver</a>
+<div class="card">
+<h1>Solicitud de Cotización</h1>
+<p>Cuéntanos tu necesidad y te compartimos una propuesta para despliegue, soporte y operación de monitoreo ambiental.</p>
+<div class="grid">
+<input class="field" type="text" placeholder="Nombre completo">
+<input class="field" type="text" placeholder="Empresa o institución">
+<input class="field" type="email" placeholder="Correo">
+<input class="field" type="text" placeholder="Teléfono">
+<select class="field"><option>Tipo de proyecto</option><option>Monitoreo urbano</option><option>Industrial</option><option>Académico</option></select>
+<select class="field"><option>Rango de presupuesto</option><option>50k - 100k</option><option>100k - 250k</option><option>250k+</option></select>
+<textarea class="field full" placeholder="Describe tu caso"></textarea>
+<button class="btn full" type="button" onclick="alert('Solicitud registrada. Un asesor te contactará en menos de 24 horas.')">Enviar solicitud</button>
+</div>
+</div>
+</div>
+</body>
+</html>

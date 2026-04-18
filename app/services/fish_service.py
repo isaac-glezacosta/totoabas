@@ -29,30 +29,48 @@ def serialize_doc(doc):
 
 def get_recent_fish_readings(hours=24, limit=200):
     since = datetime.now(UTC) - timedelta(hours=hours)
-    since_iso = since.isoformat()
+    epoch = datetime(1970, 1, 1, tzinfo=UTC)
 
-    docs = fish_readings_collection.find(
+    pipeline = [
         {
-            "$or": [
-                {"timestamp": {"$gte": since}},
-                {"updatedAt": {"$gte": since}},
-                {"timestamp": {"$gte": since_iso}},
-                {"updatedAt": {"$gte": since_iso}},
-            ]
+            "$addFields": {
+                "canonicalFishId": {"$ifNull": ["$fishId", "$robotId"]},
+                "sortDate": {
+                    "$convert": {
+                        "input": {"$ifNull": ["$updatedAt", "$timestamp"]},
+                        "to": "date",
+                        "onError": epoch,
+                        "onNull": epoch,
+                    }
+                },
+            }
         },
         {
-            "_id": 1,
-            "fishId": 1,
-            "robotId": 1,
-            "waterBody": 1,
-            "timestamp": 1,
-            "updatedAt": 1,
-            "location": 1,
-            "metrics": 1,
-            "alert": 1,
+            "$match": {
+                "canonicalFishId": {"$ne": None},
+                "sortDate": {"$gte": since},
+            }
         },
-    ).sort("timestamp", -1).limit(limit)
+        {"$sort": {"sortDate": -1}},
+        {"$limit": limit},
+        {
+            "$project": {
+                "_id": 1,
+                "fishId": 1,
+                "robotId": 1,
+                "waterBody": 1,
+                "timestamp": 1,
+                "updatedAt": 1,
+                "location": 1,
+                "metrics": 1,
+                "alert": 1,
+                "sortDate": 1,
+                "canonicalFishId": 1,
+            }
+        },
+    ]
 
+    docs = fish_readings_collection.aggregate(pipeline)
     return [serialize_doc(doc) for doc in docs]
 
 
@@ -74,55 +92,50 @@ def _fish_id_variants(fish_id):
 
 def get_fish_readings_by_id(fish_id, hours=168, limit=500):
     since = datetime.now(UTC) - timedelta(hours=hours)
-    since_iso = since.isoformat()
+    epoch = datetime(1970, 1, 1, tzinfo=UTC)
     id_variants = _fish_id_variants(fish_id)
 
-    docs = fish_readings_collection.find(
+    pipeline = [
         {
-            "$and": [
-                {
-                    "$or": [
-                        {"fishId": {"$in": id_variants}},
-                        {"robotId": {"$in": id_variants}},
-                    ]
+            "$addFields": {
+                "canonicalFishId": {"$ifNull": ["$fishId", "$robotId"]},
+                "sortDate": {
+                    "$convert": {
+                        "input": {"$ifNull": ["$updatedAt", "$timestamp"]},
+                        "to": "date",
+                        "onError": epoch,
+                        "onNull": epoch,
+                    }
                 },
-                {
-                    "$or": [
-                        {"timestamp": {"$gte": since}},
-                        {"updatedAt": {"$gte": since}},
-                        {"timestamp": {"$gte": since_iso}},
-                        {"updatedAt": {"$gte": since_iso}},
-                    ]
-                },
-            ]
+            }
         },
         {
-            "_id": 1,
-            "fishId": 1,
-            "robotId": 1,
-            "waterBody": 1,
-            "timestamp": 1,
-            "updatedAt": 1,
-            "location": 1,
-            "metrics": 1,
-            "alert": 1,
+            "$match": {
+                "canonicalFishId": {"$in": id_variants},
+                "sortDate": {"$gte": since},
+            }
         },
-    ).limit(limit)
+        {"$sort": {"sortDate": 1}},
+        {"$limit": limit},
+        {
+            "$project": {
+                "_id": 1,
+                "fishId": 1,
+                "robotId": 1,
+                "waterBody": 1,
+                "timestamp": 1,
+                "updatedAt": 1,
+                "location": 1,
+                "metrics": 1,
+                "alert": 1,
+                "sortDate": 1,
+                "canonicalFishId": 1,
+            }
+        },
+    ]
 
-    serialized = [serialize_doc(doc) for doc in docs]
-
-    def sort_key(doc):
-        value = doc.get("timestamp") or doc.get("updatedAt")
-        if hasattr(value, "isoformat"):
-            return value
-        if isinstance(value, str):
-            try:
-                return datetime.fromisoformat(value.replace("Z", "+00:00"))
-            except ValueError:
-                return datetime(1970, 1, 1, tzinfo=UTC)
-        return datetime(1970, 1, 1, tzinfo=UTC)
-
-    return sorted(serialized, key=sort_key)
+    docs = fish_readings_collection.aggregate(pipeline)
+    return [serialize_doc(doc) for doc in docs]
 
 
 def get_current_fish_status(limit=200):

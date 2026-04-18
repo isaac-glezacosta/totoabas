@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Totoabas | Tramos</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d1521;--text:#f8fafc;--soft:#94a3b8;--line:#23405a;--neon:#13bbc4;--ok:#35d39e;--warn:#f5b84a}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',sans-serif;color:var(--text);background:radial-gradient(circle at 15% 82%,rgba(43,136,255,.2),transparent 40%),var(--bg)}
+.wrap{max-width:980px;margin:0 auto;padding:28px}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+h1{font-family:'Lexend',sans-serif}
+a{text-decoration:none;color:#cbf7f9;border:1px solid rgba(19,187,196,.6);padding:8px 12px;border-radius:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.item{border:1px solid rgba(255,255,255,.14);border-radius:12px;background:linear-gradient(180deg,rgba(17,29,45,.9),rgba(11,22,35,.9));padding:14px}
+.item h3{font-family:'Lexend',sans-serif;font-size:1rem;margin-bottom:8px}
+.item p{color:var(--soft);font-size:.9rem;line-height:1.5}
+.badge{display:inline-block;border-radius:999px;padding:4px 9px;font-size:.76rem;font-weight:700;margin-top:8px}
+.badge.ok{background:rgba(53,211,158,.17);color:#bff2dd;border:1px solid rgba(53,211,158,.45)}
+.badge.warn{background:rgba(245,184,74,.17);color:#ffe2b0;border:1px solid rgba(245,184,74,.45)}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="top"><h1>Estado de Tramos</h1><a href="Visualización.html">Volver al panel</a></div>
+<div class="grid">
+<div class="item"><h3>Tramo 1 · Norte</h3><p>Flujo estable, sin obstrucciones críticas. Se recomienda inspección preventiva en 48 horas.</p><span class="badge ok">Normal</span></div>
+<div class="item"><h3>Tramo 2 · Centro</h3><p>Presencia moderada de residuos ligeros. Equipo de limpieza asignado para hoy.</p><span class="badge.warn">Alerta</span></div>
+<div class="item"><h3>Tramo 3 · Universidad</h3><p>Zona con mayor incidencia en últimas 24h. Monitoreo de cámara reforzado.</p><span class="badge.warn">Alerta</span></div>
+<div class="item"><h3>Tramo 4 · Oriente</h3><p>Parámetros químicos dentro de rango. Operación normal con seguimiento rutinario.</p><span class="badge ok">Normal</span></div>
+</div>
+</div>
+</body>
+</html>
