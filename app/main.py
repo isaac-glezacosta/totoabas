@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routes.fish import router as fish_router
 from app.routes.reports import router as reports_router
 
-app = FastAPI(title="Water Quality API")
+app = FastAPI(title="Totoabas API")
 
 app.add_middleware(
     CORSMiddleware,
