@@ -2164,9 +2164,6 @@
     async function getHistoryForFish(fishId, robotId) {
         const lookupId = normalizeFishId(robotId || fishId) || (robotId || fishId);
         const localHistory = sensorHistoryById.get(lookupId) || [];
-        if (localHistory.length >= 3) {
-            return localHistory;
-        }
 
         try {
             const historyResp = await apiFetch(`/fish_readings/history/${encodeURIComponent(lookupId)}?hours=168&limit=500`);

@@ -27,51 +27,68 @@ def serialize_doc(doc):
     return clean
 
 
+def _parse_doc_datetime(value):
+    if isinstance(value, datetime):
+        return value if value.tzinfo else value.replace(tzinfo=UTC)
+
+    if isinstance(value, str):
+        raw = value.strip()
+        if not raw:
+            return None
+
+        normalized = raw.replace("Z", "+00:00")
+        try:
+            parsed = datetime.fromisoformat(normalized)
+            return parsed if parsed.tzinfo else parsed.replace(tzinfo=UTC)
+        except ValueError:
+            pass
+
+        # Fallback for strings that include microseconds but no timezone.
+        if "T" in raw:
+            raw_no_tz = re.sub(r"(Z|[+-]\d{2}:\d{2})$", "", raw)
+            try:
+                parsed = datetime.fromisoformat(raw_no_tz)
+                return parsed.replace(tzinfo=UTC) if parsed.tzinfo is None else parsed
+            except ValueError:
+                return None
+
+    return None
+
+
+def _reading_datetime(doc):
+    return _parse_doc_datetime(doc.get("updatedAt")) or _parse_doc_datetime(doc.get("timestamp"))
+
+
+def _fish_readings_projection():
+    return {
+        "_id": 1,
+        "fishId": 1,
+        "robotId": 1,
+        "waterBody": 1,
+        "timestamp": 1,
+        "updatedAt": 1,
+        "location": 1,
+        "metrics": 1,
+        "alert": 1,
+    }
+
+
 def get_recent_fish_readings(hours=24, limit=200):
     since = datetime.now(UTC) - timedelta(hours=hours)
-    epoch = datetime(1970, 1, 1, tzinfo=UTC)
+    fetch_cap = min(max(limit * 8, 2000), 50000)
+    docs = fish_readings_collection.find({}, _fish_readings_projection()).sort("_id", -1).limit(fetch_cap)
+    serialized = [serialize_doc(doc) for doc in docs]
 
-    pipeline = [
-        {
-            "$addFields": {
-                "canonicalFishId": {"$ifNull": ["$fishId", "$robotId"]},
-                "sortDate": {
-                    "$convert": {
-                        "input": {"$ifNull": ["$updatedAt", "$timestamp"]},
-                        "to": "date",
-                        "onError": epoch,
-                        "onNull": epoch,
-                    }
-                },
-            }
-        },
-        {
-            "$match": {
-                "canonicalFishId": {"$ne": None},
-                "sortDate": {"$gte": since},
-            }
-        },
-        {"$sort": {"sortDate": -1}},
-        {"$limit": limit},
-        {
-            "$project": {
-                "_id": 1,
-                "fishId": 1,
-                "robotId": 1,
-                "waterBody": 1,
-                "timestamp": 1,
-                "updatedAt": 1,
-                "location": 1,
-                "metrics": 1,
-                "alert": 1,
-                "sortDate": 1,
-                "canonicalFishId": 1,
-            }
-        },
-    ]
+    filtered = []
+    for doc in serialized:
+        if not (doc.get("fishId") or doc.get("robotId")):
+            continue
+        reading_dt = _reading_datetime(doc)
+        if reading_dt and reading_dt >= since:
+            filtered.append((reading_dt, doc))
 
-    docs = fish_readings_collection.aggregate(pipeline)
-    return [serialize_doc(doc) for doc in docs]
+    filtered.sort(key=lambda item: item[0], reverse=True)
+    return [doc for _, doc in filtered[:limit]]
 
 
 def _fish_id_variants(fish_id):
@@ -92,50 +109,31 @@ def _fish_id_variants(fish_id):
 
 def get_fish_readings_by_id(fish_id, hours=168, limit=500):
     since = datetime.now(UTC) - timedelta(hours=hours)
-    epoch = datetime(1970, 1, 1, tzinfo=UTC)
     id_variants = _fish_id_variants(fish_id)
 
-    pipeline = [
+    fetch_cap = min(max(limit * 8, 2000), 50000)
+    docs = fish_readings_collection.find(
         {
-            "$addFields": {
-                "canonicalFishId": {"$ifNull": ["$fishId", "$robotId"]},
-                "sortDate": {
-                    "$convert": {
-                        "input": {"$ifNull": ["$updatedAt", "$timestamp"]},
-                        "to": "date",
-                        "onError": epoch,
-                        "onNull": epoch,
-                    }
-                },
-            }
+            "$or": [
+                {"fishId": {"$in": id_variants}},
+                {"robotId": {"$in": id_variants}},
+            ]
         },
-        {
-            "$match": {
-                "canonicalFishId": {"$in": id_variants},
-                "sortDate": {"$gte": since},
-            }
-        },
-        {"$sort": {"sortDate": 1}},
-        {"$limit": limit},
-        {
-            "$project": {
-                "_id": 1,
-                "fishId": 1,
-                "robotId": 1,
-                "waterBody": 1,
-                "timestamp": 1,
-                "updatedAt": 1,
-                "location": 1,
-                "metrics": 1,
-                "alert": 1,
-                "sortDate": 1,
-                "canonicalFishId": 1,
-            }
-        },
-    ]
+        _fish_readings_projection(),
+    ).sort("_id", -1).limit(fetch_cap)
 
-    docs = fish_readings_collection.aggregate(pipeline)
-    return [serialize_doc(doc) for doc in docs]
+    serialized = [serialize_doc(doc) for doc in docs]
+
+    filtered = []
+    for doc in serialized:
+        reading_dt = _reading_datetime(doc)
+        if reading_dt and reading_dt >= since:
+            filtered.append((reading_dt, doc))
+
+    filtered.sort(key=lambda item: item[0])
+    if len(filtered) > limit:
+        filtered = filtered[-limit:]
+    return [doc for _, doc in filtered]
 
 
 def get_current_fish_status(limit=200):
