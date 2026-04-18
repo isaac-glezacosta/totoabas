@@ -1,0 +1,1622 @@
+[
+  {
+    "robotId": "fish_01",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:00:11Z"
+    },
+    "location": {
+      "lat": 20.591594,
+      "lng": -100.418002
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.418002,
+        20.591594
+      ]
+    },
+    "metrics": {
+      "temperature": 21.69,
+      "ph": 7.31,
+      "turbidity": 2.07,
+      "oxygen": 8.25,
+      "wqi": 86.56,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_01",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:01:11Z"
+    },
+    "location": {
+      "lat": 20.592643,
+      "lng": -100.416234
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.416234,
+        20.592643
+      ]
+    },
+    "metrics": {
+      "temperature": 22.0,
+      "ph": 7.36,
+      "turbidity": 2.44,
+      "oxygen": 7.85,
+      "wqi": 84.96,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_01",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:02:11Z"
+    },
+    "location": {
+      "lat": 20.593606,
+      "lng": -100.415644
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.415644,
+        20.593606
+      ]
+    },
+    "metrics": {
+      "temperature": 22.05,
+      "ph": 7.32,
+      "turbidity": 2.48,
+      "oxygen": 7.86,
+      "wqi": 83.68,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_01",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:03:11Z"
+    },
+    "location": {
+      "lat": 20.59415,
+      "lng": -100.41533
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.41533,
+        20.59415
+      ]
+    },
+    "metrics": {
+      "temperature": 22.81,
+      "ph": 7.29,
+      "turbidity": 2.72,
+      "oxygen": 7.94,
+      "wqi": 84.27,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_01",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:04:11Z"
+    },
+    "location": {
+      "lat": 20.594673,
+      "lng": -100.414164
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.414164,
+        20.594673
+      ]
+    },
+    "metrics": {
+      "temperature": 22.81,
+      "ph": 7.35,
+      "turbidity": 3.42,
+      "oxygen": 7.98,
+      "wqi": 83.32,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_01",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:05:11Z"
+    },
+    "location": {
+      "lat": 20.595971,
+      "lng": -100.412202
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.412202,
+        20.595971
+      ]
+    },
+    "metrics": {
+      "temperature": 22.64,
+      "ph": 7.32,
+      "turbidity": 3.51,
+      "oxygen": 7.75,
+      "wqi": 81.98,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_02",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:00:22Z"
+    },
+    "location": {
+      "lat": 20.594031,
+      "lng": -100.415445
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.415445,
+        20.594031
+      ]
+    },
+    "metrics": {
+      "temperature": 22.4,
+      "ph": 7.27,
+      "turbidity": 3.18,
+      "oxygen": 8.34,
+      "wqi": 83.79,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_02",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:01:22Z"
+    },
+    "location": {
+      "lat": 20.59445,
+      "lng": -100.414787
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.414787,
+        20.59445
+      ]
+    },
+    "metrics": {
+      "temperature": 22.55,
+      "ph": 7.28,
+      "turbidity": 3.26,
+      "oxygen": 8.27,
+      "wqi": 83.47,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_02",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:02:22Z"
+    },
+    "location": {
+      "lat": 20.595375,
+      "lng": -100.412986
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.412986,
+        20.595375
+      ]
+    },
+    "metrics": {
+      "temperature": 22.6,
+      "ph": 7.33,
+      "turbidity": 3.5,
+      "oxygen": 7.94,
+      "wqi": 81.89,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_02",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:03:22Z"
+    },
+    "location": {
+      "lat": 20.59625,
+      "lng": -100.410178
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.410178,
+        20.59625
+      ]
+    },
+    "metrics": {
+      "temperature": 22.93,
+      "ph": 7.34,
+      "turbidity": 3.62,
+      "oxygen": 7.53,
+      "wqi": 81.76,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_02",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:04:22Z"
+    },
+    "location": {
+      "lat": 20.595888,
+      "lng": -100.407762
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.407762,
+        20.595888
+      ]
+    },
+    "metrics": {
+      "temperature": 22.91,
+      "ph": 7.29,
+      "turbidity": 4.14,
+      "oxygen": 7.95,
+      "wqi": 80.86,
+      "nivel": "Buena"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_02",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:05:22Z"
+    },
+    "location": {
+      "lat": 20.596011,
+      "lng": -100.403994
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.403994,
+        20.596011
+      ]
+    },
+    "metrics": {
+      "temperature": 23.3,
+      "ph": 7.29,
+      "turbidity": 4.26,
+      "oxygen": 7.28,
+      "wqi": 78.33,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_03",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:00:33Z"
+    },
+    "location": {
+      "lat": 20.596197,
+      "lng": -100.411583
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.411583,
+        20.596197
+      ]
+    },
+    "metrics": {
+      "temperature": 22.97,
+      "ph": 7.31,
+      "turbidity": 4.07,
+      "oxygen": 8.43,
+      "wqi": 79.57,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_03",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:01:33Z"
+    },
+    "location": {
+      "lat": 20.596158,
+      "lng": -100.408571
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.408571,
+        20.596158
+      ]
+    },
+    "metrics": {
+      "temperature": 23.05,
+      "ph": 7.26,
+      "turbidity": 3.95,
+      "oxygen": 8.29,
+      "wqi": 77.69,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_03",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:02:33Z"
+    },
+    "location": {
+      "lat": 20.595886,
+      "lng": -100.405457
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.405457,
+        20.595886
+      ]
+    },
+    "metrics": {
+      "temperature": 23.04,
+      "ph": 7.25,
+      "turbidity": 4.48,
+      "oxygen": 8.44,
+      "wqi": 76.99,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_03",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:03:33Z"
+    },
+    "location": {
+      "lat": 20.596085,
+      "lng": -100.402396
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.402396,
+        20.596085
+      ]
+    },
+    "metrics": {
+      "temperature": 23.5,
+      "ph": 7.3,
+      "turbidity": 4.77,
+      "oxygen": 8.15,
+      "wqi": 76.66,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_03",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:04:33Z"
+    },
+    "location": {
+      "lat": 20.596323,
+      "lng": -100.400868
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.400868,
+        20.596323
+      ]
+    },
+    "metrics": {
+      "temperature": 23.34,
+      "ph": 7.26,
+      "turbidity": 4.68,
+      "oxygen": 7.55,
+      "wqi": 76.13,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_03",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:05:33Z"
+    },
+    "location": {
+      "lat": 20.597238,
+      "lng": -100.39927
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.39927,
+        20.597238
+      ]
+    },
+    "metrics": {
+      "temperature": 23.25,
+      "ph": 7.24,
+      "turbidity": 4.94,
+      "oxygen": 7.64,
+      "wqi": 75.13,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_04",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:00:44Z"
+    },
+    "location": {
+      "lat": 20.595795,
+      "lng": -100.406585
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.406585,
+        20.595795
+      ]
+    },
+    "metrics": {
+      "temperature": 22.52,
+      "ph": 7.25,
+      "turbidity": 4.74,
+      "oxygen": 7.9,
+      "wqi": 77.25,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_04",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:01:44Z"
+    },
+    "location": {
+      "lat": 20.596088,
+      "lng": -100.402839
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.402839,
+        20.596088
+      ]
+    },
+    "metrics": {
+      "temperature": 22.92,
+      "ph": 7.25,
+      "turbidity": 5.29,
+      "oxygen": 7.63,
+      "wqi": 75.06,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_04",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:02:44Z"
+    },
+    "location": {
+      "lat": 20.596231,
+      "lng": -100.401254
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.401254,
+        20.596231
+      ]
+    },
+    "metrics": {
+      "temperature": 22.99,
+      "ph": 7.29,
+      "turbidity": 5.32,
+      "oxygen": 7.94,
+      "wqi": 75.02,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_04",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:03:44Z"
+    },
+    "location": {
+      "lat": 20.59696,
+      "lng": -100.399743
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.399743,
+        20.59696
+      ]
+    },
+    "metrics": {
+      "temperature": 23.67,
+      "ph": 7.29,
+      "turbidity": 5.84,
+      "oxygen": 7.33,
+      "wqi": 73.97,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_04",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:04:44Z"
+    },
+    "location": {
+      "lat": 20.597895,
+      "lng": -100.397863
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.397863,
+        20.597895
+      ]
+    },
+    "metrics": {
+      "temperature": 23.44,
+      "ph": 7.3,
+      "turbidity": 5.77,
+      "oxygen": 7.65,
+      "wqi": 72.99,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_04",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:05:44Z"
+    },
+    "location": {
+      "lat": 20.59808,
+      "lng": -100.396839
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.396839,
+        20.59808
+      ]
+    },
+    "metrics": {
+      "temperature": 23.74,
+      "ph": 7.28,
+      "turbidity": 5.98,
+      "oxygen": 7.18,
+      "wqi": 73.33,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_05",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:00:55Z"
+    },
+    "location": {
+      "lat": 20.596581,
+      "lng": -100.400284
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.400284,
+        20.596581
+      ]
+    },
+    "metrics": {
+      "temperature": 23.17,
+      "ph": 7.28,
+      "turbidity": 4.93,
+      "oxygen": 7.67,
+      "wqi": 73.62,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_05",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:01:55Z"
+    },
+    "location": {
+      "lat": 20.597598,
+      "lng": -100.398582
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.398582,
+        20.597598
+      ]
+    },
+    "metrics": {
+      "temperature": 23.22,
+      "ph": 7.27,
+      "turbidity": 5.38,
+      "oxygen": 8.12,
+      "wqi": 71.07,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_05",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:02:55Z"
+    },
+    "location": {
+      "lat": 20.598082,
+      "lng": -100.397065
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.397065,
+        20.598082
+      ]
+    },
+    "metrics": {
+      "temperature": 23.58,
+      "ph": 7.25,
+      "turbidity": 5.54,
+      "oxygen": 7.87,
+      "wqi": 69.86,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_05",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:03:55Z"
+    },
+    "location": {
+      "lat": 20.598036,
+      "lng": -100.39588
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.39588,
+        20.598036
+      ]
+    },
+    "metrics": {
+      "temperature": 23.34,
+      "ph": 7.24,
+      "turbidity": 5.79,
+      "oxygen": 7.88,
+      "wqi": 70.9,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_05",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:04:55Z"
+    },
+    "location": {
+      "lat": 20.59829,
+      "lng": -100.394651
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.394651,
+        20.59829
+      ]
+    },
+    "metrics": {
+      "temperature": 24.05,
+      "ph": 7.28,
+      "turbidity": 6.28,
+      "oxygen": 7.79,
+      "wqi": 69.45,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_05",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:05:55Z"
+    },
+    "location": {
+      "lat": 20.598643,
+      "lng": -100.393896
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.393896,
+        20.598643
+      ]
+    },
+    "metrics": {
+      "temperature": 24.12,
+      "ph": 7.3,
+      "turbidity": 6.27,
+      "oxygen": 7.06,
+      "wqi": 67.24,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_06",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:01:06Z"
+    },
+    "location": {
+      "lat": 20.598042,
+      "lng": -100.395091
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.395091,
+        20.598042
+      ]
+    },
+    "metrics": {
+      "temperature": 23.66,
+      "ph": 7.23,
+      "turbidity": 6.06,
+      "oxygen": 7.19,
+      "wqi": 71.39,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_06",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:02:06Z"
+    },
+    "location": {
+      "lat": 20.598495,
+      "lng": -100.394269
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.394269,
+        20.598495
+      ]
+    },
+    "metrics": {
+      "temperature": 24.11,
+      "ph": 7.23,
+      "turbidity": 6.18,
+      "oxygen": 7.12,
+      "wqi": 71.96,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_06",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:03:06Z"
+    },
+    "location": {
+      "lat": 20.598681,
+      "lng": -100.393388
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.393388,
+        20.598681
+      ]
+    },
+    "metrics": {
+      "temperature": 24.24,
+      "ph": 7.22,
+      "turbidity": 6.38,
+      "oxygen": 6.95,
+      "wqi": 69.67,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_06",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:04:06Z"
+    },
+    "location": {
+      "lat": 20.59865,
+      "lng": -100.392412
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.392412,
+        20.59865
+      ]
+    },
+    "metrics": {
+      "temperature": 24.42,
+      "ph": 7.23,
+      "turbidity": 6.8,
+      "oxygen": 7.05,
+      "wqi": 69.23,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_06",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:05:06Z"
+    },
+    "location": {
+      "lat": 20.598478,
+      "lng": -100.391404
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.391404,
+        20.598478
+      ]
+    },
+    "metrics": {
+      "temperature": 24.99,
+      "ph": 7.2,
+      "turbidity": 6.78,
+      "oxygen": 7.24,
+      "wqi": 67.41,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_06",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:06:06Z"
+    },
+    "location": {
+      "lat": 20.598531,
+      "lng": -100.389786
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.389786,
+        20.598531
+      ]
+    },
+    "metrics": {
+      "temperature": 25.07,
+      "ph": 7.21,
+      "turbidity": 7.37,
+      "oxygen": 7.07,
+      "wqi": 66.69,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_07",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:01:17Z"
+    },
+    "location": {
+      "lat": 20.598569,
+      "lng": -100.391938
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.391938,
+        20.598569
+      ]
+    },
+    "metrics": {
+      "temperature": 24.36,
+      "ph": 7.2,
+      "turbidity": 6.61,
+      "oxygen": 6.75,
+      "wqi": 68.26,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_07",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:02:17Z"
+    },
+    "location": {
+      "lat": 20.598458,
+      "lng": -100.390671
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.390671,
+        20.598458
+      ]
+    },
+    "metrics": {
+      "temperature": 24.86,
+      "ph": 7.21,
+      "turbidity": 6.85,
+      "oxygen": 6.45,
+      "wqi": 69.3,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_07",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:03:17Z"
+    },
+    "location": {
+      "lat": 20.598767,
+      "lng": -100.389216
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.389216,
+        20.598767
+      ]
+    },
+    "metrics": {
+      "temperature": 24.59,
+      "ph": 7.19,
+      "turbidity": 7.14,
+      "oxygen": 6.86,
+      "wqi": 67.34,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_07",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:04:17Z"
+    },
+    "location": {
+      "lat": 20.599164,
+      "lng": -100.388603
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.388603,
+        20.599164
+      ]
+    },
+    "metrics": {
+      "temperature": 24.88,
+      "ph": 7.15,
+      "turbidity": 7.47,
+      "oxygen": 6.55,
+      "wqi": 67.33,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_07",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:05:17Z"
+    },
+    "location": {
+      "lat": 20.599584,
+      "lng": -100.388009
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.388009,
+        20.599584
+      ]
+    },
+    "metrics": {
+      "temperature": 25.06,
+      "ph": 7.18,
+      "turbidity": 8.06,
+      "oxygen": 6.71,
+      "wqi": 65.99,
+      "nivel": "Aceptable"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_07",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:06:17Z"
+    },
+    "location": {
+      "lat": 20.600186,
+      "lng": -100.386633
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.386633,
+        20.600186
+      ]
+    },
+    "metrics": {
+      "temperature": 25.46,
+      "ph": 7.2,
+      "turbidity": 7.96,
+      "oxygen": 6.44,
+      "wqi": 64.93,
+      "nivel": "Contaminada"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_08",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:01:28Z"
+    },
+    "location": {
+      "lat": 20.59909,
+      "lng": -100.388758
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.388758,
+        20.59909
+      ]
+    },
+    "metrics": {
+      "temperature": 25.29,
+      "ph": 7.2,
+      "turbidity": 7.9,
+      "oxygen": 6.46,
+      "wqi": 64.08,
+      "nivel": "Contaminada"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_08",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:02:28Z"
+    },
+    "location": {
+      "lat": 20.599393,
+      "lng": -100.388292
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.388292,
+        20.599393
+      ]
+    },
+    "metrics": {
+      "temperature": 26.0,
+      "ph": 7.2,
+      "turbidity": 8.21,
+      "oxygen": 6.32,
+      "wqi": 63.72,
+      "nivel": "Contaminada"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_08",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:03:28Z"
+    },
+    "location": {
+      "lat": 20.59993,
+      "lng": -100.387211
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.387211,
+        20.59993
+      ]
+    },
+    "metrics": {
+      "temperature": 25.67,
+      "ph": 7.17,
+      "turbidity": 8.58,
+      "oxygen": 6.1,
+      "wqi": 61.33,
+      "nivel": "Contaminada"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_08",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:04:28Z"
+    },
+    "location": {
+      "lat": 20.600649,
+      "lng": -100.385467
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.385467,
+        20.600649
+      ]
+    },
+    "metrics": {
+      "temperature": 26.0,
+      "ph": 7.21,
+      "turbidity": 8.72,
+      "oxygen": 6.38,
+      "wqi": 61.24,
+      "nivel": "Contaminada"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_08",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:05:28Z"
+    },
+    "location": {
+      "lat": 20.601069,
+      "lng": -100.384068
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.384068,
+        20.601069
+      ]
+    },
+    "metrics": {
+      "temperature": 26.49,
+      "ph": 7.21,
+      "turbidity": 9.19,
+      "oxygen": 6.3,
+      "wqi": 59.95,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_08",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:06:28Z"
+    },
+    "location": {
+      "lat": 20.601217,
+      "lng": -100.383167
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.383167,
+        20.601217
+      ]
+    },
+    "metrics": {
+      "temperature": 26.43,
+      "ph": 7.21,
+      "turbidity": 9.01,
+      "oxygen": 5.73,
+      "wqi": 59.64,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_09",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:01:39Z"
+    },
+    "location": {
+      "lat": 20.600939,
+      "lng": -100.384647
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.384647,
+        20.600939
+      ]
+    },
+    "metrics": {
+      "temperature": 25.89,
+      "ph": 7.15,
+      "turbidity": 8.62,
+      "oxygen": 7.01,
+      "wqi": 60.51,
+      "nivel": "Contaminada"
+    },
+    "alert": false
+  },
+  {
+    "robotId": "fish_09",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:02:39Z"
+    },
+    "location": {
+      "lat": 20.601175,
+      "lng": -100.383566
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.383566,
+        20.601175
+      ]
+    },
+    "metrics": {
+      "temperature": 26.09,
+      "ph": 7.16,
+      "turbidity": 8.71,
+      "oxygen": 6.73,
+      "wqi": 58.69,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_09",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:03:39Z"
+    },
+    "location": {
+      "lat": 20.601133,
+      "lng": -100.382757
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.382757,
+        20.601133
+      ]
+    },
+    "metrics": {
+      "temperature": 26.12,
+      "ph": 7.17,
+      "turbidity": 9.12,
+      "oxygen": 6.52,
+      "wqi": 57.96,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_09",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:04:39Z"
+    },
+    "location": {
+      "lat": 20.600901,
+      "lng": -100.381784
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.381784,
+        20.600901
+      ]
+    },
+    "metrics": {
+      "temperature": 26.74,
+      "ph": 7.2,
+      "turbidity": 9.54,
+      "oxygen": 6.38,
+      "wqi": 56.58,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_09",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:05:39Z"
+    },
+    "location": {
+      "lat": 20.600793,
+      "lng": -100.380748
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.380748,
+        20.600793
+      ]
+    },
+    "metrics": {
+      "temperature": 27.1,
+      "ph": 7.17,
+      "turbidity": 9.81,
+      "oxygen": 6.37,
+      "wqi": 57.11,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_09",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:06:39Z"
+    },
+    "location": {
+      "lat": 20.600517,
+      "lng": -100.379346
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.379346,
+        20.600517
+      ]
+    },
+    "metrics": {
+      "temperature": 26.63,
+      "ph": 7.16,
+      "turbidity": 10.04,
+      "oxygen": 6.15,
+      "wqi": 55.16,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_10",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:01:50Z"
+    },
+    "location": {
+      "lat": 20.600739,
+      "lng": -100.380316
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.380316,
+        20.600739
+      ]
+    },
+    "metrics": {
+      "temperature": 26.87,
+      "ph": 7.12,
+      "turbidity": 9.71,
+      "oxygen": 6.31,
+      "wqi": 56.86,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_10",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:02:50Z"
+    },
+    "location": {
+      "lat": 20.600463,
+      "lng": -100.378979
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.378979,
+        20.600463
+      ]
+    },
+    "metrics": {
+      "temperature": 27.22,
+      "ph": 7.16,
+      "turbidity": 10.08,
+      "oxygen": 6.39,
+      "wqi": 55.27,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_10",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:03:50Z"
+    },
+    "location": {
+      "lat": 20.600452,
+      "lng": -100.378477
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.378477,
+        20.600452
+      ]
+    },
+    "metrics": {
+      "temperature": 27.78,
+      "ph": 7.1,
+      "turbidity": 10.1,
+      "oxygen": 5.92,
+      "wqi": 56.26,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_10",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:04:50Z"
+    },
+    "location": {
+      "lat": 20.600388,
+      "lng": -100.377333
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.377333,
+        20.600388
+      ]
+    },
+    "metrics": {
+      "temperature": 27.37,
+      "ph": 7.17,
+      "turbidity": 10.64,
+      "oxygen": 5.81,
+      "wqi": 54.23,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_10",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:05:50Z"
+    },
+    "location": {
+      "lat": 20.600461,
+      "lng": -100.376432
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.376432,
+        20.600461
+      ]
+    },
+    "metrics": {
+      "temperature": 28.01,
+      "ph": 7.11,
+      "turbidity": 10.82,
+      "oxygen": 5.91,
+      "wqi": 54.68,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  },
+  {
+    "robotId": "fish_10",
+    "waterBody": "rio_queretaro",
+    "timestamp": {
+      "$date": "2026-04-18T09:06:50Z"
+    },
+    "location": {
+      "lat": 20.600477,
+      "lng": -100.376382
+    },
+    "geo": {
+      "type": "Point",
+      "coordinates": [
+        -100.376382,
+        20.600477
+      ]
+    },
+    "metrics": {
+      "temperature": 28.3,
+      "ph": 7.11,
+      "turbidity": 11.27,
+      "oxygen": 5.97,
+      "wqi": 52.13,
+      "nivel": "Contaminada"
+    },
+    "alert": true
+  }
+]
