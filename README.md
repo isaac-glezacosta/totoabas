@@ -6,7 +6,7 @@
 
 ## Descripción
 
-**Totoabas** es una plataforma de monitoreo continuo de cuerpos de agua, enfocada en el Río Querétaro. El sistema recopila lecturas de calidad del agua en tiempo real a través de sensores instalados en peces-robot autónomos, detecta anomalías mediante un modelo de inteligencia artificial (LSTM) y genera reportes automáticos con apoyo de Google Gemini.
+**Totoabas** es una plataforma de monitoreo continuo de cuerpos de agua. El sistema recopila lecturas de calidad del agua en tiempo real a través de sensores instalados en peces-robot autónomos, detecta anomalías mediante un modelo de inteligencia artificial (LSTM) y genera reportes automáticos con apoyo de Google Gemini.
 
 ### Características principales
 
