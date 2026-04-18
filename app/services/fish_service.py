@@ -88,7 +88,20 @@ def get_recent_fish_readings(hours=24, limit=200):
             filtered.append((reading_dt, doc))
 
     filtered.sort(key=lambda item: item[0], reverse=True)
-    return [doc for _, doc in filtered[:limit]]
+    if filtered:
+        return [doc for _, doc in filtered[:limit]]
+
+    # Fallback for datasets with non-parseable or inconsistent timestamp formats.
+    docs_no_window = fish_readings_collection.find(
+        {
+            "$or": [
+                {"fishId": {"$exists": True}},
+                {"robotId": {"$exists": True}},
+            ]
+        },
+        _fish_readings_projection(),
+    ).sort("_id", -1).limit(limit)
+    return [serialize_doc(doc) for doc in docs_no_window]
 
 
 def _fish_id_variants(fish_id):
@@ -131,9 +144,25 @@ def get_fish_readings_by_id(fish_id, hours=168, limit=500):
             filtered.append((reading_dt, doc))
 
     filtered.sort(key=lambda item: item[0])
-    if len(filtered) > limit:
-        filtered = filtered[-limit:]
-    return [doc for _, doc in filtered]
+    if filtered:
+        if len(filtered) > limit:
+            filtered = filtered[-limit:]
+        return [doc for _, doc in filtered]
+
+    # Fallback for fish history when timestamp parsing/window filtering drops rows.
+    docs_no_window = fish_readings_collection.find(
+        {
+            "$or": [
+                {"fishId": {"$in": id_variants}},
+                {"robotId": {"$in": id_variants}},
+            ]
+        },
+        _fish_readings_projection(),
+    ).sort("_id", -1).limit(limit)
+
+    serialized_no_window = [serialize_doc(doc) for doc in docs_no_window]
+    serialized_no_window.reverse()
+    return serialized_no_window
 
 
 def get_current_fish_status(limit=200):

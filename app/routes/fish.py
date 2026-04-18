@@ -1,12 +1,15 @@
 import random
 from datetime import datetime, UTC
 from fastapi import APIRouter, HTTPException, Query
+from app.config import DB_NAME, FISH_READINGS_COLLECTION, FISH_STATUS_COLLECTION
+from app.db import fish_readings_collection, fish_status_collection
 from app.services.fish_service import (
     get_recent_fish_readings,
     get_fish_readings_by_id,
     get_current_fish_status,
     get_fish_status_by_id,
     build_summary,
+    serialize_doc,
     write_fish_reading_and_status,
 )
 
@@ -94,3 +97,39 @@ def simulate_fish_reading():
 
     inserted_doc = write_fish_reading_and_status(doc)
     return {"doc": inserted_doc}
+
+
+@router.get("/fish_debug/source")
+def fish_debug_source():
+    sample_reading = fish_readings_collection.find_one(
+        {},
+        {
+            "_id": 1,
+            "fishId": 1,
+            "robotId": 1,
+            "timestamp": 1,
+            "updatedAt": 1,
+            "waterBody": 1,
+        },
+    )
+    sample_status = fish_status_collection.find_one(
+        {},
+        {
+            "_id": 1,
+            "fishId": 1,
+            "robotId": 1,
+            "timestamp": 1,
+            "updatedAt": 1,
+            "waterBody": 1,
+        },
+    )
+
+    return {
+        "db_name": DB_NAME,
+        "fish_readings_collection": FISH_READINGS_COLLECTION,
+        "fish_status_collection": FISH_STATUS_COLLECTION,
+        "fish_readings_count": fish_readings_collection.count_documents({}),
+        "fish_status_count": fish_status_collection.count_documents({}),
+        "sample_fish_readings_doc": serialize_doc(sample_reading) if sample_reading else None,
+        "sample_fish_status_doc": serialize_doc(sample_status) if sample_status else None,
+    }
